@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <title>WebPage By Udaya</title>
+    
+<body>
+    <h1 style="text-align:center; color:mediumvioletred">Musician guess by Udayasri Prasadam</h1>
+<h2>musician name</h2>
+<form>
+    <label for="form1_secret"><b>Enter the secret musician name </b></label>
+    <input type ="password" id="form1_secret" name="form1_secret" value="John Lennon"> <br>
+    <label for="form1_name"><b>Guess the musician </b></label>
+    <input type ="text" id="form1_name" name="form1_name" autofocus> <br>
+    <input type="button" onclick="checkGuess()" value="Check the guess">
+</form>
+<p id="result">This text will be replaced </p>
+<script> 
+correct = 0
+wrong = 0
+function checkGuess (){
+    console.log("Getting form values")
+    secret = document.getElementById("form1_secret").value
+    name = document.getElementById("form1_name").value    
+    out = document.getElementById("result")
+    if(secret==name){
+        alert("You got it right")
+         correct = correct+1
+        out.innerHTML = "correct answer:"+ correct +"wrong answer:"+ wrong
+    } else {
+        alert("Wrong musician")
+        wrong = wrong+1
+        out.innerHTML ="correct answer:"+ correct + "wrong answer:"+ wrong
+    }
+}
+</script>
+<div style="padding: 75px 75px"><img src="praying.jpg" id="bird" height="100px" width="100px" onclick="swapImage()"></div>
+    <script>
+        var useImage=1;
+        function swapImage(){
+            switch(useImage){
+                case 1:
+                document.getElementById("bird").src="roach.jpg"
+                useImage=2;
+                break;
+                case 2:
+                document.getElementById("bird").src="scarab.jpg"
+                useImage=3;
+               break;
+                case 3:
+                document.getElementById("bird").src="praying.jpg"
+                useImage=1;
+                break;
+            }
+        }
+    </script>
+
+
+</body>
+</html> 
