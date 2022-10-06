@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html>
     <title>WebPage By Udaya</title>
+    <!--Modifying Pages using Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     
-<body>
+<body class ="container" style ="background-color:cadetblue;">
     <h1 style="text-align:center; color:mediumvioletred">Musician guess by Udayasri Prasadam</h1>
 <h2>musician name</h2>
 <form>
     <label for="form1_secret"><b>Enter the secret musician name </b></label>
-    <input type ="password" id="form1_secret" name="form1_secret" value="John Lennon"> <br>
+    <input class = "form-control" type ="password" id="form1_secret" name="form1_secret" value="John Lennon"> <br>
     <label for="form1_name"><b>Guess the musician </b></label>
-    <input type ="text" id="form1_name" name="form1_name" autofocus> <br>
-    <input type="button" onclick="checkGuess()" value="Check the guess">
+    <input class = "form-control" type ="text" id="form1_name" name="form1_name" autofocus> <br>
+    <input type="button" class = "btn btn-warning" onclick="checkGuess()" value="Check the guess">
 </form>
 <p id="result">This text will be replaced </p>
 <script> 
@@ -28,6 +33,15 @@ function checkGuess (){
     } else {
         alert("Wrong musician")
         wrong = wrong+1
+        if (correct == 0 && wrong % 3 == 0 && wrong != 0) {
+                    alert("Sorry, game over.");
+                    wrong = 0
+                    correct = 0
+                } else if (correct > 0) {
+                    correct = 0
+                    wrong = 0
+                    out.innerHTML = "correct answer:" + correct + "wrong answer:" + wrong
+                }
         out.innerHTML ="correct answer:"+ correct + "wrong answer:"+ wrong
     }
 }
